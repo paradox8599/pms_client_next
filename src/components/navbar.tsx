@@ -1,6 +1,29 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; 
 import { UserOutlined, CalendarOutlined, ClockCircleOutlined , FileOutlined, LogoutOutlined } from '@ant-design/icons';  
+
+const navbarItems = [
+    {
+      name: "Doctor Schedules",
+      icon: <ClockCircleOutlined style={{ color: 'white' }} />,
+    },
+    {
+      name: "Patient Appointments",
+      icon: <CalendarOutlined style={{ color: 'white' }} />,
+    },
+    {
+      name: "Forms",
+      icon: <FileOutlined style={{ color: 'white' }} />,
+    },
+    {
+      name: "Profile",
+      icon: <UserOutlined style={{ color: 'white' }} />,
+    },
+    {
+      name: "Sign Out",
+      icon: <LogoutOutlined style={{ color: 'white' }} />,
+    },
+  ];
+  
 
 export default function Navbar () {
     const iconStyle = { color: 'white' };
@@ -24,27 +47,12 @@ export default function Navbar () {
       <hr className="border-b border-gray-600 mb-6" />
 
       <ul>
-        
-        <li className="flex items-center space-x-3">
-          <ClockCircleOutlined style={iconStyle}/> 
-          <a href="#" className="text-white navbar-items">Doctor Schedules</a>
-        </li>
-        <li className="flex items-center space-x-3 mt-4">
-          <CalendarOutlined style={iconStyle}/> 
-          <a href="#" className="text-white navbar-items">Patient Appointments</a>
-        </li>
-        <li className="flex items-center space-x-3 mt-4">
-          <FileOutlined style={iconStyle}/> 
-          <a href="#" className="text-white navbar-items">Forms</a>
-        </li>
-        <li className="flex items-center space-x-3 mt-4">
-          <UserOutlined style={iconStyle}/> 
-          <a href="#" className="text-white navbar-items">Profile</a>
-        </li>
-        <li className="flex items-center space-x-3 mt-4">
-          <LogoutOutlined style={iconStyle}/>
-          <a href="#" className="text-white navbar-items">Sign Out</a>
-        </li>
+        {navbarItems.map((item, index) => (
+          <li key={index} className="flex items-center space-x-3">
+            {item.icon}
+            <a href="#" className="text-white navbar-items">{item.name}</a>
+          </li>
+        ))}
       </ul>
     </nav>
   );
