@@ -1,5 +1,6 @@
 import React from 'react';
 import { UserOutlined, CalendarOutlined, ClockCircleOutlined , FileOutlined, LogoutOutlined } from '@ant-design/icons';  
+import Link from 'next/link';
 
 const navbarItems = [
     {
@@ -50,7 +51,7 @@ export default function Navbar () {
         {navbarItems.map((item, index) => (
           <li key={index} className="flex items-center space-x-3 py-2">
             {item.icon}
-            <a href="#" className="text-white navbar-items">{item.name}</a>
+            <Link href="#" className="text-white navbar-items">{item.name}</Link>
           </li>
         ))}
       </ul>
