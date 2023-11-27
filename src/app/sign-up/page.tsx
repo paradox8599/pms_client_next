@@ -2,13 +2,22 @@
 
 import { Formik, Form, Field } from 'formik';
 import React, { useState } from 'react';
-import { Calendar, theme } from 'antd';
+import { Calendar, theme, Button } from 'antd';
 import type { Dayjs } from 'dayjs';
 
-
 const onChange = (value: Dayjs) => {
-    console.log(value.format('YYYY-MM-DD')); 
+    console.log(value.format('YYYY-MM-DD'));
 };
+
+const inputField = (label: string, name: string, type: string) => (
+    <div className="flex flex-col">
+        <label htmlFor={name} className="text-gray-700 text-sm font-semibold mb-1">
+            {label} (required):
+        </label>
+        <Field type={type} id={name} name={name} className="sign-box" />
+    </div>
+);
+
 
 export default function SignUpPage() {
 
@@ -26,7 +35,7 @@ export default function SignUpPage() {
     };
 
     const genderOptions = [
-        { value: '', label: 'Gender (required)', disabled: true },
+        { value: '', label: 'Select your gender', disabled: true },
         { value: 'male', label: 'Male' },
         { value: 'female', label: 'Female' },
         { value: 'other', label: 'Other' },
@@ -61,70 +70,81 @@ export default function SignUpPage() {
                         console.log(values);
                     }}
                 >
-                    <Form className="flex mt-24 w-full">
+                    <Form className="lg:flex mt-24 w-full">
                         {/* Column 1: Authorization & Name */}
                         <div className="flex-1 flex flex-col space-y-6 pr-10">
 
                             <div className="flex flex-col space-y-4">
-                                <p className="text-xl font-semibold">AUTHORIZATION</p>
-                                <Field type="text" name="username" placeholder="Username (required)" className="sign-box " />
-                                <Field type="email" name="email" placeholder="Email (required)" className="sign-box" />
-                                <Field type="password" name="password" placeholder="Password (required)" className="sign-box" />
-                                <Field type="password" name="confirmPassword" placeholder="Confirm Password (required)" className="sign-box" />
+                                <p className="text-xl font-bold">AUTHORIZATION</p>
+                                {inputField('Username', 'username', 'text')}
+                                {inputField('Email', 'email', 'email')}
+                                {inputField('Password', 'password', 'password')}
+                                {inputField('Confirm Password', 'confirmPassword', 'password')}
                             </div>
 
+
                             <div className="flex flex-col space-y-4">
-                                <p className="text-xl font-semibold">NAME</p>
-                                <Field type="text" name="firstName" placeholder="First Name (required)" className="sign-box" />
-                                <Field type="text" name="middleName" placeholder="Middle Name (optional)" className="sign-box" />
-                                <Field type="text" name="lastName" placeholder="Last Name (required)" className="sign-box" />
+                                <p className="text-xl font-bold">NAME</p>
+                                {inputField('First Name', 'firstName', 'text')}
+                                {inputField('Middle Name', 'middleName', 'text')}
+                                {inputField('Last Name', 'lastName', 'text')}
                             </div>
                         </div>
 
                         {/* Column 2: Address */}
                         <div className="flex-1 flex flex-col space-y-6 pr-10">
                             <div className="flex flex-col space-y-4">
-                                <p className="text-xl font-semibold">ADDRESS</p>
-                                <Field type="text" name="streetNumber" placeholder="Street Number (required)" className="sign-box" />
-                                <Field type="text" name="streetName" placeholder="Street Name (required)" className="sign-box" />
-                                <Field type="text" name="suburb" placeholder="Suburb (required)" className="sign-box" />
-                                <Field type="text" name="state" placeholder="State (required)" className="sign-box" />
-                                <Field type="text" name="country" placeholder="Country (required)" className="sign-box" />
-                                <Field type="text" name="postcode" placeholder="Postcode (required)" className="sign-box" />
+                                <p className="text-xl font-bold">ADDRESS</p>
+                                {inputField('Street Number', 'streetNumber', 'text')}
+                                {inputField('Street Name', 'streetName', 'text')}
+                                {inputField('Suburb', 'suburb', 'text')}
+                                {inputField('State', 'state', 'text')}
+                                {inputField('Country', 'country', 'text')}
+                                {inputField('Postcode', 'postcode', 'text')}
                             </div>
                         </div>
+
 
                         {/* Column 3: Extra Details */}
                         <div className="flex-1 flex flex-col space-y-6">
                             <div className="flex flex-col space-y-4">
-                                <p className="text-xl font-semibold">EXTRA DETAILS</p>
-                                <Field as="select" name="gender" placeholder="Gender (required)" className="sign-box">
-                                    {genderOptions.map((option, index) => (
-                                        <option key={index} value={option.value} disabled={option.disabled && index === 0}>
-                                            {option.label}
-                                        </option>
-                                    ))}
-                                </Field>
+                                <p className="text-xl font-bold">EXTRA DETAILS</p>
+                                <div className="flex flex-col">
+                                    <label htmlFor="gender" className="text-gray-700 text-sm font-semibold mb-1">
+                                        Gender (required):
+                                    </label>
+                                    <Field as="select" name="gender" id="gender" className="sign-box">
+                                        {genderOptions.map((option, index) => (
+                                            <option key={index} value={option.value} disabled={option.disabled && index === 0}>
+                                                {option.label}
+                                            </option>
+                                        ))}
+                                    </Field>
+                                </div>
                             </div>
-                            <div className="flex flex-col space-y-4">
-                                <p className="text-sm">Date of Birth</p>
+                            <div className="flex flex-col space-y-2">
+                                <p className="text-gray-700 text-sm font-semibold">Date of Birth:</p>
                                 <div style={wrapperStyle}>
-                                    <Calendar fullscreen={false} onChange={onChange}/>
+                                    <Calendar fullscreen={false} onChange={onChange} />
                                 </div>
                             </div>
                         </div>
                     </Form>
                 </Formik>
 
-                <div className="flex flex-col items-center space-y-2 mt-10">
+                <div className="flex flex-col items-center space-y-2 mt-6">
                     <label className="flex items-center space-x-2">
                         <input type="checkbox" className="border-gray-300 rounded-md h-4 w-4" />
                         <span className="text-md">I agree with the terms and conditions</span>
                     </label>
 
-                    <button type="submit" className="w-1/3 bg-cyan-950 text-white rounded-md py-2 mt-4 hover:bg-blue-600 transition duration-300">
+                    <Button
+                        type="primary"
+                        htmlType="submit"
+                        className="w-1/3"
+                    >
                         Sign Up
-                    </button>
+                    </Button>
 
                     <div className="text-md">
                         Already have an account? <a href="/sign-in" className="text-lime-500 font-semibold">Sign In</a>
