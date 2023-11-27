@@ -83,7 +83,7 @@ export default function SignUpPage() {
                                 {inputField('First Name', 'firstName', 'text')}
                                 {inputField('Middle Name', 'middleName', 'text')}
                                 {inputField('Last Name', 'lastName', 'text')}
-                            di</div>
+                            </div>
                         </div>
 
                         {/* Column 2: Address */}
@@ -99,12 +99,11 @@ export default function SignUpPage() {
                             </div>
                         </div>
 
-
                         {/* Column 3: Extra Details */}
                         <div className="space-y-6">
                             <div className="space-y-4">
                                 <p className="text-xl font-bold">EXTRA DETAILS</p>
-                                <div className="">
+                                <div>
                                     <label htmlFor="gender" className="text-gray-700 text-sm font-semibold mb-1">
                                         Gender (required):
                                     </label>
