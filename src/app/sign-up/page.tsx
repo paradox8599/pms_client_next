@@ -42,7 +42,7 @@ export default function SignUpPage() {
     ];
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-cover bg-center py-24" style={{ backgroundImage: "url('https://media.istockphoto.com/id/1077026512/photo/nature-inspired-table.jpg?s=612x612&w=0&k=20&c=TthBCamXFsPZt2CaCfd2EzuzeImWiwKTUZJTMEIKFcI=')" }}>
+        <div className="min-h-screen flex items-center justify-center bg-cover bg-center py-24 sm:bg-no-repeat" style={{ backgroundImage: "url('https://media.istockphoto.com/id/1077026512/photo/nature-inspired-table.jpg?s=612x612&w=0&k=20&c=TthBCamXFsPZt2CaCfd2EzuzeImWiwKTUZJTMEIKFcI=')" }}>
             <div className="bg-white bg-opacity-90 px-12 py-6 rounded-lg shadow-md relative">
                 <div className="h-24 w-5/6 bg-cyan-950 absolute -top-4 left-1/2 transform -translate-x-1/2 rounded-lg flex items-center justify-center">
                     <p className="text-white font-mono font-semibold tracking-widest text-4xl">Vendure</p>
@@ -72,7 +72,7 @@ export default function SignUpPage() {
                 >
                     <Form className="lg:flex mt-24 w-full">
                         {/* Column 1: Authorization & Name */}
-                        <div className="flex-1 flex flex-col space-y-6 pr-10">
+                        <div className="flex flex-col space-y-6 pr-10">
 
                             <div className="flex flex-col space-y-4">
                                 <p className="text-xl font-bold">AUTHORIZATION</p>
@@ -92,7 +92,7 @@ export default function SignUpPage() {
                         </div>
 
                         {/* Column 2: Address */}
-                        <div className="flex-1 flex flex-col space-y-6 pr-10">
+                        <div className="flex flex-col space-y-6 pr-10">
                             <div className="flex flex-col space-y-4">
                                 <p className="text-xl font-bold">ADDRESS</p>
                                 {inputField('Street Number', 'streetNumber', 'text')}
@@ -106,7 +106,7 @@ export default function SignUpPage() {
 
 
                         {/* Column 3: Extra Details */}
-                        <div className="flex-1 flex flex-col space-y-6">
+                        <div className="flex flex-col space-y-6">
                             <div className="flex flex-col space-y-4">
                                 <p className="text-xl font-bold">EXTRA DETAILS</p>
                                 <div className="flex flex-col">
