@@ -1,11 +1,11 @@
 "use client";
 
-import { createLocation, getLocations } from "@/lib/api/locations";
-import { getMe } from "@/lib/api/users";
+import { updateLocation } from "@/lib/api/locations";
+
 import { Button } from "antd";
 import React from "react";
 
-export default function CreateLocationButton() {
+export default function UpdateLocationButton() {
     const [data, setData] = React.useState({});
 
     return (
@@ -13,20 +13,18 @@ export default function CreateLocationButton() {
             <Button
                 onClick={() => {
                     const loc = {
-                        name: 'Hobart',
+                        name: 'Launceston',
                         email: 'abc@123.com',
-                        streetNumber: '1',
+                        streetNumber: '10',
                         street: 'Princes Street',
                         suburb: 'Sandy Bay',
                         postcode: '7005',
                         phone: '414961363',
-                    };
-                    createLocation({
-                        location: loc
-                    }).then(setData);
+                    }
+                    updateLocation({ location: loc }, "11").then(setData);
                 }}
             >
-                Create location
+                Update location
             </Button>
             <pre>{JSON.stringify(data, null, 2)}</pre>
         </>

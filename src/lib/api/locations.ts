@@ -41,3 +41,31 @@ export async function createLocation({ location }: { location: Location }) {
   });
   return await res.json();
 }
+
+export async function updateLocation(
+  { location }: { location: Location },
+  locationId: string
+) {
+  const url = new URL(`${locationId}`, LOC_URL.href);
+  const { name, email, streetNumber, street, suburb, postcode, phone } =
+    location;
+  const res = await fetch(url, {
+    method: "PUT",
+    mode: "cors",
+    credentials: "include",
+    headers: getDefaultHeaders(),
+    body: JSON.stringify({
+      data: {
+        name,
+        email,
+        streetNumber,
+        street,
+        suburb,
+        postcode,
+        phone,
+      },
+    }),
+  });
+
+  return await res.json();
+}
