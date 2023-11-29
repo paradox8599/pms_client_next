@@ -33,3 +33,14 @@ export type LoginCredentials = {
   identifier: string;
   password: string;
 };
+
+
+export type Location = {
+  name: string;
+  email: string;
+  streetNumber: string;
+  street: string;
+  suburb: string;
+  postcode: string;
+  phone: string;
+}
