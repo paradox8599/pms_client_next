@@ -39,6 +39,9 @@ export async function createLocation({ location }: { location: Location }) {
       },
     }),
   });
+  if (!res.ok) {
+    throw new Error(`HTTP error! Status: ${res.status}`);
+  }
   return await res.json();
 }
 
@@ -66,6 +69,25 @@ export async function updateLocation(
       },
     }),
   });
+  if (!res.ok) {
+    throw new Error(`HTTP error! Status: ${res.status}`);
+  }
+  return await res.json();
+}
+
+export async function deleteLocation(locationId: string) {
+  const url = new URL(`${locationId}`, LOC_URL.href);
+
+  const res = await fetch(url, {
+    method: "DELETE",
+    mode: "cors",
+    credentials: "include",
+    headers: getDefaultHeaders(),
+  });
+
+  if (!res.ok) {
+    throw new Error(`HTTP error! Status: ${res.status}`);
+  }
 
   return await res.json();
 }

@@ -21,7 +21,7 @@ export default function UpdateLocationButton() {
                         postcode: '7005',
                         phone: '414961363',
                     }
-                    updateLocation({ location: loc }, "11").then(setData);
+                    updateLocation({ location: loc }, "2").then(setData);
                 }}
             >
                 Update location
