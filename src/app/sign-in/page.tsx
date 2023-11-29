@@ -11,8 +11,8 @@ export default function SignInPage() {
         backgroundImage:
           "url('https://media.istockphoto.com/id/1077026512/photo/nature-inspired-table.jpg?s=612x612&w=0&k=20&c=TthBCamXFsPZt2CaCfd2EzuzeImWiwKTUZJTMEIKFcI=')",
       }}>
-      <div className="bg-white bg-opacity-90 px-10 py-2 rounded-lg shadow-md sm:mx-4 items-center">
-        <div className="h-24 w-72 bg-cyan-950 rounded-lg flex items-center justify-center -translate-y-8 mb-6 mx-auto">
+      <div className="bg-white bg-opacity-90 px-10 py-2 rounded-lg shadow-md mx-2 items-center">
+        <div className="py-8 bg-cyan-950 rounded-lg flex items-center justify-center -translate-y-8">
           <p className="text-white font-mono font-semibold tracking-widest text-4xl">
             Vendure
           </p>
