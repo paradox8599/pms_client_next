@@ -1,22 +1,28 @@
 "use client";
-
-import { getLocations } from "@/lib/api/locations";
-import { getMe } from "@/lib/api/users";
-import { Button } from "antd";
-import React from "react";
+import { useGetLocations } from "@/hooks/useGetLocations";  // Update the import statement
+import { Button, Input } from "antd";
+import React, { useState } from "react";
 
 export default function GetLocationButton() {
-  const [data, setData] = React.useState({});
+  const [name, setName] = useState("");  // State to track the input value
+  const { locations, isLoading, isError } = useGetLocations(name);  // Use the hook
+
+  const handleButtonClick = () => {
+
+    setName("Hobart");
+  };
+
   return (
     <>
-      <Button
-        onClick={() => {
-          getLocations({name:'Hobart'}).then(setData);
-        }}
-      >
-        Get Location Button
-      </Button>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
+      <Input
+        placeholder="Enter location name"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+      <Button onClick={handleButtonClick}>Get Locations </Button>
+      {isLoading && <p>Loading...</p>}
+      {isError && <p>Error loading locations</p>}
+      <pre>{JSON.stringify(locations, null, 2)}</pre>
     </>
   );
 }

@@ -2,7 +2,7 @@ import { getDefaultHeaders } from "../helpers";
 import { Location } from "../types";
 import { API_URL } from "../variables/urls";
 
-const LOC_URL = new URL("locations/", API_URL);
+export const LOC_URL = new URL("locations/", API_URL);
 
 export async function getLocations({ name }: { name: string }) {
   const url = new URL(LOC_URL.href);

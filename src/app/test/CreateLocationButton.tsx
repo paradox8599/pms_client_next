@@ -1,7 +1,6 @@
 "use client";
 
 import { createLocation, getLocations } from "@/lib/api/locations";
-import { getMe } from "@/lib/api/users";
 import { Button } from "antd";
 import React from "react";
 
