@@ -63,16 +63,13 @@ export default function Profile() {
     setIsIconVisible(true);
   };
 
-  function handleSaveChanges () {
+  function handleSaveChanges() {
     setIsEditable(false);
     setIsIconVisible(true);
   };
 
   return (
     <div className="flex">
-      <div className="hidden lg:block lg:w-1/4 overflow-y-auto">
-        <Navbar />
-      </div>
 
       <div className="min-h-screen h-full w-full md:w-full lg:ml-6 lg:mt-5">
         <div
@@ -86,7 +83,7 @@ export default function Profile() {
           <div className="flex justify-end">
             <div onClick={toggleEditMode} className="cursor-pointer">
               {isIconVisible && (
-                <EditOutlined/>
+                <EditOutlined />
               )}
             </div>
           </div>
