@@ -9,6 +9,8 @@ import GetMeButton from "./GetMeButton";
 import LoginButton from "./LoginButton";
 import UpdateLocationButton from "./location/UpdateLocationButton";
 import GetAvailabilitiesButton from "./availabilities/GetAvailabilitiesButton";
+import { GetTreatmentButton } from "./treatments/GetTreatmentButton";
+
 
 export default function Home() {
   return (
@@ -24,6 +26,7 @@ export default function Home() {
       <CreateAppointmentButton />
       <FindAvailableAppointmentsButton />
       <GetAvailabilitiesButton />
+      <GetTreatmentButton />
     </div>
   );
 }

@@ -14,7 +14,7 @@ export default function GetAppointmentsButton() {
     return (
         <>
             <Input
-                placeholder="Enter appointment ID"
+                placeholder="Enter appointment ID to get a specific appointment"
                 value={id}
                 onChange={(e) => setID(e.target.value)}
             />
