@@ -1,13 +1,14 @@
-import CreateAppointmentButton from "./CreateAppointmentButton";
-import CreateLocationButton from "./CreateLocationButton";
-import DeletelocationButton from "./DeleteLocationButton";
+import CreateAppointmentButton from "./appointment/CreateAppointmentButton";
+import CreateLocationButton from "./location/CreateLocationButton";
+import DeletelocationButton from "./location/DeleteLocationButton";
 import FindAvailableAppointmentsButton from "./FAAButton";
-import GetAppointmentsButton from "./GetAppointmentsButton";
-import GetLocationButton from "./GetLocationButton";
+import GetAppointmentsButton from "./appointment/GetAppointmentsButton";
+import GetLocationButton from "./location/GetLocationButton";
 import GetMeButton from "./GetMeButton";
 
 import LoginButton from "./LoginButton";
-import UpdateLocationButton from "./UpdateLocationButton";
+import UpdateLocationButton from "./location/UpdateLocationButton";
+import GetAvailabilitiesButton from "./availabilities/GetAvailabilitiesButton";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
       <GetAppointmentsButton />
       <CreateAppointmentButton />
       <FindAvailableAppointmentsButton />
+      <GetAvailabilitiesButton />
     </div>
   );
 }

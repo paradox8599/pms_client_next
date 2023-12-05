@@ -7,7 +7,7 @@ import React, { useState } from "react";
 export default function GetAppointmentsButton() {
     const [id, setID] = useState<string>();
 
-    const { data, isLoading, error } = useAppointments({ id })
+    const { data, isLoading, error } = useAppointments(id)
 
 
 

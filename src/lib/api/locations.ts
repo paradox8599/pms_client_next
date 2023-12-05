@@ -4,9 +4,9 @@ import { API_URL } from "../variables/urls";
 
 export const LOC_URL = new URL("locations/", API_URL);
 
-export async function getLocations({ name }: { name: string }) {
+export async function getLocations(name?: string) {
   const url = new URL(LOC_URL.href);
-  url.searchParams.append("filters[name][$contains]", name);
+  name && url.searchParams.append("filters[name][$contains]", name);
 
   const res = await fetch(url, {
     mode: "cors",

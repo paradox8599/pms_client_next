@@ -5,7 +5,7 @@ import { API_URL } from "../variables/urls";
 export const APP_URL = new URL("appointments/", API_URL);
 export const FAA_URL = new URL("faa/", API_URL);
 
-export async function getAppointments({ id }: { id?: string }) {
+export async function getAppointments(id?: string) {
   let url = new URL(APP_URL.href);
 
   if (id) {
