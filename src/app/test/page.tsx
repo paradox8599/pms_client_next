@@ -1,5 +1,6 @@
 import CreateLocationButton from "./CreateLocationButton";
 import DeletelocationButton from "./DeleteLocationButton";
+import GetAppointmentsButton from "./GetAppointmentsButton";
 import GetLocationButton from "./GetLocationButton";
 import GetMeButton from "./GetMeButton";
 
@@ -16,7 +17,7 @@ export default function Home() {
       <CreateLocationButton />
       <UpdateLocationButton />
       <DeletelocationButton />
-
+      <GetAppointmentsButton />
     </div>
   );
 }

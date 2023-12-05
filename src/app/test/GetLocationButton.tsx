@@ -1,11 +1,11 @@
 "use client";
-import { useGetLocations } from "@/hooks/useGetLocations";  // Update the import statement
+import { useGetLocations } from "@/hooks/useGetLocations";
 import { Button, Input } from "antd";
 import React, { useState } from "react";
 
 export default function GetLocationButton() {
-  const [name, setName] = useState("");  // State to track the input value
-  const { data, isLoading, error } = useGetLocations(name);  // Use the hook
+  const [name, setName] = useState("");
+  const { data, isLoading, error } = useGetLocations(name);
 
   const handleButtonClick = () => {
 
