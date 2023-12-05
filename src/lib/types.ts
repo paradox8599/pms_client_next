@@ -9,8 +9,6 @@ export enum Roles {
 
 export type Role = Roles.Admin | Roles.Doctor | Roles.Patient | Roles.Public;
 
-
-
 export type User = {
   username: string;
   email: string;
@@ -34,7 +32,6 @@ export type LoginCredentials = {
   password: string;
 };
 
-
 export type Location = {
   name: string;
   email: string;
@@ -43,4 +40,13 @@ export type Location = {
   suburb: string;
   postcode: string;
   phone: string;
-}
+};
+
+export type Appointment = {
+  start: Date;
+  end: Date;
+  treatment: number;
+  doctor: number;
+  location: number;
+  patient: number;
+};
