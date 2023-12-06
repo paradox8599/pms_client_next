@@ -1,55 +1,58 @@
-import React from 'react';
-import { UserOutlined, CalendarOutlined, ClockCircleOutlined, FileOutlined, LogoutOutlined } from '@ant-design/icons';
+'use client';
+import React, { Fragment } from 'react';
+import { UserOutlined, CalendarOutlined, ClockCircleOutlined, FileOutlined, LogoutOutlined, DownOutlined } from '@ant-design/icons';
 import Link from 'next/link';
-
-const navbarItems = [
-  {
-    name: "Doctor Schedules",
-    icon: <ClockCircleOutlined style={{ color: 'white' }} />,
-  },
-  {
-    name: "Patient Appointments",
-    icon: <CalendarOutlined style={{ color: 'white' }} />,
-  },
-  {
-    name: "Forms",
-    icon: <FileOutlined style={{ color: 'white' }} />,
-  },
-  {
-    name: "Profile",
-    icon: <UserOutlined style={{ color: 'white' }} />,
-  },
-  {
-    name: "Sign Out",
-    icon: <LogoutOutlined style={{ color: 'white' }} />,
-  },
-];
+import { Popover, Transition } from '@headlessui/react';
 
 export default function Navbar() {
+  const navbarItems = [
+    { name: 'Doctor Schedules', icon: <ClockCircleOutlined style={{ color: 'black' }} /> },
+    { name: 'Patient Appointments', icon: <CalendarOutlined style={{ color: 'black' }} /> },
+    { name: 'Forms', icon: <FileOutlined style={{ color: 'black' }} /> },
+    { name: 'Profile', icon: <UserOutlined style={{ color: 'black' }} /> },
+    { name: 'Sign Out', icon: <LogoutOutlined style={{ color: 'black' }}/>},
+  ];
+
   return (
-    <nav className="bg-cyan-950 w-1/4 p-4 m-4 rounded-2xl h-screen">
-      <div className="mb-6 flex items-center space-x-3 p-4">
-        <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuDoisN_XW3IVsEn4qXXTiqfTFBCCQOWqDFg&usqp=CAU"
-          alt="User"
-          className="w-12 h-12 rounded-xl"
-        />
-        <div>
-          <p className="text-white font-semibold">Welcome back,</p>
-          <p className="text-white">Username</p>
-        </div>
-      </div>
+    <div className="relative inline-block text-left">
+      <Popover>
+        {({ open }) => (
+          <>
+            <Popover.Button className="bg-cyan-950 text-white px-4 py-2 rounded flex items-center">
+              Options <span className="ml-2"></span><DownOutlined />
+            </Popover.Button>
 
-      <hr className="border-b border-gray-600 mb-6" />
-
-      <ul>
-        {navbarItems.map((item, index) => (
-          <li key={index} className="flex items-center space-x-3 py-3">
-            {item.icon}
-            <Link href="#" className="text-white navbar-items">{item.name}</Link>
-          </li>
-        ))}
-      </ul>
-    </nav>
+            {open && (
+              <Transition
+                as={Fragment}
+                enter="transition-opacity duration-300"
+                enterFrom="opacity-0"
+                enterTo="opacity-100"
+                leave="transition-opacity duration-300"
+                leaveFrom="opacity-100"
+                leaveTo="opacity-0"
+              >
+                <Popover.Panel>
+                  <div className="z-10 absolute w-56 mt-1 rounded-md shadow-lg bg-white">
+                    <div className="py-1">
+                      {navbarItems.map((item, index) => (
+                        <Link href="#" key={index}>
+                          <div className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-300 cursor-pointer">
+                            <div className="flex items-center space-x-3">
+                              <div>{item.icon}</div>
+                              <div className="px-1">{item.name}</div>
+                            </div>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </Popover.Panel>
+              </Transition>
+            )}
+          </>
+        )}
+      </Popover>
+    </div>
   );
-};
+}
