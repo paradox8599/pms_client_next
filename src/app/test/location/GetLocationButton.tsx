@@ -9,17 +9,17 @@ export default function GetLocationButton() {
 
   const handleButtonClick = () => {
 
-    setName(name);
+    setName("");
   };
 
   return (
     <>
       <Input
-        placeholder="Enter location name"
-        value={name}
+        placeholder="Enter specific location name"
         onChange={(e) => setName(e.target.value)}
+        value={name}
       />
-      <Button onClick={handleButtonClick}>Get Locations </Button>
+      <Button onClick={handleButtonClick}>Get all Locations </Button>
       {isLoading && <p>Loading...</p>}
       {error && <p>Error loading locations</p>}
       <pre>{JSON.stringify(data, null, 2)}</pre>
