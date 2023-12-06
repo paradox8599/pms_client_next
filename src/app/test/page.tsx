@@ -10,6 +10,7 @@ import LoginButton from "./LoginButton";
 import UpdateLocationButton from "./location/UpdateLocationButton";
 import GetAvailabilitiesButton from "./availabilities/GetAvailabilitiesButton";
 import { GetTreatmentButton } from "./treatments/GetTreatmentButton";
+import { CreateTreatmentButton } from "./treatments/CreateTreatmentButton";
 
 
 export default function Home() {
@@ -27,6 +28,7 @@ export default function Home() {
       <FindAvailableAppointmentsButton />
       <GetAvailabilitiesButton />
       <GetTreatmentButton />
+      <CreateTreatmentButton />
     </div>
   );
 }
