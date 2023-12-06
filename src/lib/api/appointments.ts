@@ -7,10 +7,7 @@ export const FAA_URL = new URL("faa/", API_URL);
 
 export async function getAppointments({ id }: { id?: string }) {
   let url = new URL(APP_URL.href);
-
-  if (id) {
-    url = new URL(`${id}`, APP_URL.href);
-  }
+  url = new URL(`${id || ""}`, APP_URL.href);
 
   const res = await fetch(url, {
     mode: "cors",

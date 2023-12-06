@@ -1,5 +1,4 @@
 import { getDefaultHeaders } from "../helpers";
-import { Connect } from "../types";
 import { API_URL } from "../variables/urls";
 
 const TRT_URL = new URL("treatments/", API_URL);
