@@ -20,8 +20,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        {/* Use Ant Design with Next.js */}
-        {/* https://ant.design/docs/react/use-with-next */}
         <StyledComponentsRegistry>
           <ConfigProvider theme={theme}>{children}</ConfigProvider>
         </StyledComponentsRegistry>

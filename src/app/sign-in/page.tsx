@@ -3,8 +3,12 @@
 import { Button } from "antd";
 import { Formik, Form, Field } from "formik";
 import Link from 'next/link';
+import React, { useState } from "react";
 
-export default function SignInPage() {
+export default function SignInPage({ handleLogin }: { handleLogin: () => void }) {
+  const testUsername = "user";
+  const testPassword = "123";
+
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-cover bg-center"
       style={{
@@ -21,7 +25,13 @@ export default function SignInPage() {
         <Formik
           initialValues={{ username: "", password: "" }}
           onSubmit={(values) => {
-            console.log(values);
+            const { username, password } = values;
+            if (username === testUsername && password === testPassword) {
+              console.log('Logged in successfully');
+              handleLogin();
+            } else {
+              console.log('Incorrect username or password');
+            }
           }}
         >
           <Form className="w-full max-w-xl space-y-4 my-2">
